@@ -1,0 +1,13 @@
+.container{
+     border-width:2px; 
+     border-style:solid;
+     border-color: gray;
+     border-bottom-left-radius:20px;
+     border-bottom-right-radius:20px;
+     padding:20px 50px 30px;
+}
+
+h1,h2{
+     border-bottom:1px solid black;   /*글자 있는 곳을 보이지 않는 블럭으로 인식.*/
+     padding-bottom:10px;   /*글자와 선의 간격*/
+}

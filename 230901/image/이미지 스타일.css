@@ -1,0 +1,28 @@
+a{
+    color: #222;
+    text-decoration: none;
+}
+
+a:visited{
+    color: red;
+}
+
+img{
+    display: block;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    background-color: darkkhaki;
+    /* filter: blur(0px); */
+    filter: grayscale(100%);
+    transition: all 1000ms ease;
+    transform: scale(1);
+    border-radius: 50%;
+
+}
+
+img:hover{
+    filter: grayscale(0%);
+    transform: scale(1.5);
+
+}

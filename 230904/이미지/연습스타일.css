@@ -1,0 +1,30 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.갤러리{
+    display: flex;
+    flex-wrap: wrap;
+    /* viewport witdh, viewport height-화면, 브라우저 사이즈만큼 차지할 수 있다 */
+    width: 100vw;
+    height: 100vh;
+    align-content: center;
+}
+
+.갤러리>.image-wrapper{
+    width: calc(100% / 3);
+    /* flex-basis: calc(100% / 4); */
+    flex-grow: 0;
+    flex-shrink: 1;
+    padding: 10px;
+}
+
+img{
+    width:  100%;
+    max-width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
