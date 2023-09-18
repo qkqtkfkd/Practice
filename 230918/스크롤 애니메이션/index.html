@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section>
+        <figure>
+            <img src="76.jpg">
+        </figure>
+        <div class="content">
+            <h2>Lorem ipsum.</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis atque error molestias nostrum dolor
+                sit blanditiis at, incidunt animi beatae laboriosam aut consequuntur pariatur, neque mollitia
+                maiores et labore temporibus.</p>
+        </div>
+    </section>
+    <section>
+        <!--    data-aos-anchor-placement는 top-bottom 일 경우, 자기 자신의 top 부분이, 화면의 bottom에 걸렸을 때 실행된다.-->
+        <figure data-aos="fade-up"
+        data-aos-anchor-placement="top-bottom">
+            <img src="77.jpg">
+        </figure>
+        <div class="content">
+            <h2>Lorem ipsum.</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis atque error molestias nostrum dolor
+                sit blanditiis at, incidunt animi beatae laboriosam aut consequuntur pariatur, neque mollitia
+                maiores et labore temporibus.</p>
+        </div>
+    </section>
+    <section>
+        <figure data-aos="fade-right">
+            <img src="78.jpg">
+        </figure>
+        <div class="content">
+            <h2>Lorem ipsum.</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis atque error molestias nostrum dolor
+                sit blanditiis at, incidunt animi beatae laboriosam aut consequuntur pariatur, neque mollitia
+                maiores et labore temporibus.</p>
+        </div>
+    </section>
+    <section>
+        <figure data-aos="flip-right">
+            <img src="79.jpg">
+        </figure>
+        <div class="content">
+            <h2>Lorem ipsum.</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis atque error molestias nostrum dolor
+                sit blanditiis at, incidunt animi beatae laboriosam aut consequuntur pariatur, neque mollitia
+                maiores et labore temporibus.</p>
+        </div>
+    </section>
+
+    <!-- AOS 스크립트 -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- AOS 초기화 -->
+    <script>
+        AOS.init({
+            duration: 2000, //몇초에 걸쳐서 애니메이션 될지
+            delay: 500, //몇초 후에 걸쳐서 애니메이션이 실행될지
+        });
+      </script>
+</body>
+
+</html>
+
+<!-- 구글-AOS - Animate on scroll library -->
