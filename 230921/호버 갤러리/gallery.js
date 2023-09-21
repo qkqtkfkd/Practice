@@ -21,7 +21,13 @@ const image = document.getElementById('image')
 const title = document.getElementById('title')
 
 for (let i = 0; i < buttons.length; i++) {
-    console.log(buttons[i])
+    //초기화 
+    //첫번재 버튼에 check클래스 추가
+    buttons[0].classList.add('check')
+    //첫번째 데이터 타이틀을 figcaption에 할당
+    title.textContent=data[0].title
+
+    //console.log(buttons[i])
     //i번째 버튼을 클릭하면, 
     buttons[i].addEventListener('click', () => {
         //i번째 data의 url을 콘솔로 출력
