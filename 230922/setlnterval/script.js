@@ -39,7 +39,8 @@ stopBtn.addEventListener('click', () => {
 })
 
 resetBtn.addEventListener('click', () => {
-    timerID = setInterval(() => {
-        clearInterval(timerID)
+    index = 0;
+    counter.textContent = index
+    clearInterval(timerId)
 })
 
