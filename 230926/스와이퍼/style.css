@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.swiper {
+    width: 600px;
+    height: 300px;
+}
+
+.swiper-slide.first {
+    background-color: dodgerblue;
+}
+
+.swiper-slide.second {
+    background-image: url(https://images.pexels.com/photos/18295330/pexels-photo-18295330.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+    background-position: center;
+    background-size: cover;
+}
+
+.swiper-pagination-bullet{
+    background-color: white;
+    border: 1px solid black;
+} 
+
+.swiper-pagination-bullet-active{
+    background-color: var(--color, red);
+    width: 50px;
+    border-radius: 4px;
+    transition: all 200ms ease;
+}
+
