@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>별찍기</title>
+  </head>
+  <body>
+    <script>
+      //별찍기
+      //*****
+      //*****
+      //*****
+      //*****
+      //*****
+      document.write("<hr/><h1>별찍기 직사각형</h1>");
+      for (let a = 0; a < 5; a++) {
+        for (let b = 0; b < 5; b++) {
+          document.write("*");
+        }
+        document.write("<br/>");
+      }
+
+      //별찍기2
+      //*
+      //**
+      //***
+      //****
+      //*****
+      document.write("<hr/><h1>별찍기 직각삼각형</h1>");
+      for (let a = 0; a < 5; a++) {
+        for (let b = 0; b < a + 1; b++) {
+          document.write("*");
+        }
+        document.write("<br/>");
+      }
+
+      //별찍기3
+      //*****
+      // ****
+      //  ***
+      //   **
+      //    *
+      document.write("<hr/><h1>별찍기 직각삼각형2</h1>");
+      for (let i = 0; i < 5; i++) {
+        for (let j = 4; j > i; j--) {
+          document.write("&nbsp;");
+        }
+        for (let k = 0; k <= i; k++) {
+          document.write("*");
+        }
+        document.write("<br/>");
+      }
+
+      //별찍기4
+      //*****
+      //****
+      //***
+      //**
+      //*
+      document.write("<hr/><h1>별찍기 역직각삼각형</h1>");
+      for (let i = 0; i < 5; i++) {
+        for (let j = 5; j > i; j--) {
+          document.write("*");
+        }
+        document.write("<br/>");
+      }
+
+      //별찍기5
+      //*****
+      // ****
+      //  ***
+      //   **
+      //    *
+      document.write("<hr/><h1>별찍기 역직각삼각형2</h1>");
+      for (let a = 0; a < 5; a++) {  
+        for (let b = 0; b < a ; b++) {   
+          document.write("&nbsp;");
+        }
+        for (let k = 5; k > a; k--) {
+          document.write("*");
+        }
+        document.write("<br/>");
+      }
+
+      //별찍기6
+      //    *
+      //   ***
+      //  *****
+      // *******
+      //**********
+      document.write("<hr/><h1>별찍기 정삼각형</h1>");
+      for (let a = 0; a < 5; a++) { 
+        for (let j = 4; j > a-1; j--) {
+          document.write("&nbsp;");
+        }
+        for (let b = 0; b <=9; b+=2) {
+          document.write("*");
+        }
+        document.write("<br/>");
+    }
+
+    </script>
+  </body>
+</html>
