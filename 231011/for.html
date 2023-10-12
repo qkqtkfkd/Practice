@@ -17,11 +17,17 @@
       document.write("<hr>");
 
       //1~5까지의 합을 반복문을 사용하여 구하라.
+      //각각의 i값의 합을 1부터 5까지 문자열로 표현
       let sum = 0;
+      let str = "";
       for (let i = 1; i <= 5; i++) {
-        sum = sum + i;
-        console.log(sum);
-        document.write(i + " = " + sum + "<br/>");
+        sum += i;
+        if (i == 1) {
+          str += i;
+        } else {
+          str += "+" + i;
+        }
+        document.write(str + " = " + sum + "<br/>");
       }
     </script>
   </body>
