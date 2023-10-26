@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.A{
+    display: flex;
+    background-color: rgb(225, 219, 248);
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.B{
+    display: flex;
+    border: 1px solid #ddd;
+    background-color: white;
+    overflow: hidden;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
+
+}
+
+.button{
+    border: 0;
+    border-right: 1px solid #ddd;
+    padding: 0.5rem 1rem;
+    color: black;
+}
+
+.button:last-child{
+    border-right: 0;
+}
