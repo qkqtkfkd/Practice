@@ -1,0 +1,49 @@
+ .flex 7{
+    display: flex;
+    /* flex는 자식요소의 높이를 부모 높이만큼 stretch 상태로 만듭니다. */
+    gap:10px;
+    height: 500px;
+    background-color: brown;
+    /* flex의 시작점애 정렬하는 것이 기본값 */
+    justify-content: flex-start;
+    justify-content: center;
+    justify-content: flex-end;
+    /* 자식요소의 절반 크기만큼 좌우에 여백을 남기고 정렬 */
+    justify-content: space-around;
+    /* 자식요소 간의 간격과 좌우 여백이 동일한 크기로 정렬 */
+    justify-content: space-evenly;
+    /* 첫째, 마지막 자식을 좌우로 붙이고, 나머지는 균등하게 배치 */
+    justify-content: space-between;
+    /* align-itiems-교차축(y)으로 정렬, stretch가 기본 값 */
+    align-items: stretch;
+    /* flex-start 자식요소를 교차축 시작점(y축의 가장 윗부분)으로 정렬 */
+    align-items: flex-start;
+    /* 교차축(Y축) 중앙 정렬 */
+    align-items: center;
+    /* flex-start 자식요소를 교차축 하단으로 정렬 */
+    align-items: flex-end;
+} 
+
+.flex{
+    display: flex;
+    gap: 10px;
+    height: 500px;
+    background-color: cadetblue;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: blueviolet;
+    border: 1px solid black;
+}
+
+.box:nth-child(2){
+    background-color: aquamarine;
+}
+.box:nth-child(3){
+    background-color: rgb(207, 180, 24);
+}
