@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>String 함수 연습</title>
-</head>
-<body>
-    
-</body>
-<script>
+  </head>
+  <body></body>
+  <script>
     //주어진 문자열의 홀수번째 문자는 대문자로, 짝수번째 문자는 소문자로 변환
     //"try hello world"
-    const str="try hello world";
-    function toUpperLowerCase(string){
-        for(let i=0;i<string.length; i++){
-            i%2==0;
-            string.indexOf(i);
-        }
+    const str = "try hello world";
+    function toUpperLowerCase(string) {
+      let result = "";
+      for (let i = 0; i < string.length; i++) {
+        // if (i % 2 == 0) {
+        //   result += string[i].toLowerCase();
+        //   //   result += string.charAt(i).toUpperCase();
+        // } else {
+        //   result += string[i].toLowerCase();
+        //   //   result += string.charAt(i).toUpperCase();
+        // }
+        result += i%2== 0 ? string[i].toUpperLowerCase():string[i].toUpperLowerCase();
+      }
+      return result;
     }
-    
-</script>
+    document.write(`<h1>1번 문제 결과:${str}</h1>`);
+  </script>
 </html>

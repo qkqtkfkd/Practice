@@ -1,0 +1,23 @@
+.btn {
+  display: inline;
+  font-size: 1em;
+  padding: 10px 20px;
+  background-color: rgb(11, 139, 243);
+  color: white;
+  border-color: rgb(18, 18, 90);
+  cursor: pointer; /*버튼에 올리면 마우스 변환*/
+  transition: all 0.2s ease;
+  /* before 상태에 배치가 좋다. 애니메이션 효과 */
+}
+
+.btn:hover {
+  background-color: red;
+  border-radius: 15px;
+  /* 버튼에 마우스를 올리면 버튼 변환. 이 경우는 귀퉁이 라운드.  */
+}
+
+.btn:active {
+  background-color: yellowgreen;
+  color: black;
+  /* 버튼 누른 상태에서 버튼 변환. 이 경우는 색상. */
+}
