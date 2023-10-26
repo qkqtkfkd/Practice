@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+    background-image: url("그림/4.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; 
+       
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.container::before{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* 바탕화면에 그라디언트 주기. */
+    /* 회전, 투명도, 색상변 */
+    background: linear-gradient(45deg, transparent 10%, rgba(255,0,0,0.7));
+    z-index: 0;
+    opacity: 0.5;
+}
+
+
+.content{
+    color: white;
+    width: 45ch;
+    text-align: center;
+    /* 글자를 앞으로 */
+    z-index: 10;
+}
+
+.A{
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.animation{
+    position: fixed;
+    width: 30px;
+    height: 60px;
+    border: 3px solid white;
+    border-radius: 5rem;
+    bottom: 90px;
+}
+
+.animation::after{
+    position: absolute;
+    top: -30px;
+    width: 90px;
+    text-align: center;
+    content: 'scroll down';
+    color: white;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 13px;
+}
+
+.dot{
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    background-color: white;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: pingpong 1s infinite alternate;
+
+}
+
+@keyframes pingpong{
+    0%{
+        top:5px;
+    }
+    100%{
+        top:40px;
+    }
+}
