@@ -1,0 +1,50 @@
+#header{
+    font-size: 32px;
+}
+
+#header>h2{
+    /* 부모를 기준으로 따라감 */
+    font-size: 1em;
+}
+
+.list{
+    font-size: 60px;
+}
+
+.list li{
+    font-size: 0.8rem;
+}
+
+.btn{
+    /* width: 50px; */
+    height: 40px;
+    padding: 0.5rem 1rem;
+    background-color: bisque;
+    border:0;
+    font-size: 1rem;
+    text-decoration: none;
+    color: blue;
+    border-radius: 40px;
+    cursor: pointer;
+    transition-duration: 200ms;
+    transition-timing-function: ease;
+    /* 위의 속성을 한번에 줄여서 쓴 transition 축약형 속성 */
+    /* 1s=1000ms */
+    transition: all 200ms ease;
+}
+
+.btn:hover{
+    background-color: greenyellow;
+    color: blueviolet;
+}
+
+.btn:active{
+    background-color: black;
+    color: aliceblue;
+}
+
+.btn-primary{
+    background-color: blueviolet;
+    color: white;
+}
+    
