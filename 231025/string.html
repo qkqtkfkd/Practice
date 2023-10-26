@@ -106,5 +106,32 @@
 
     //전화번호 검색패턴 예: 000-0000-000 => /[0-9]{3}-[0-9]{4}-[0-9]{4}/
     //이메일 검색패턴 예: OOOOO@OOOO>OOO => /[0-9a-zA-Z]+@[a-z]+\.[a-z\.]{3,9}/
+  
+
+
+    // let reg = /[0-9a-zA-Z]+@[a-z]+\.[a-z]{3,}/;
+    // const email = "abcd1234A@university.com";
+    // console.log(reg.test(email));
+
+    document.write(`<hr>`);
+    document.write(`<h1>search() 함수</h1>`);
+    //8. search() 함수
+    //String 에서 인수로 전달받은 정규 표현식 또는 문자(열)을 이용하여 String의 검색 작업을 수행한다.
+    document.write(`<h3>is 검색: ${str5.search("is")}</h3>`);
+    document.write(`<h3>is 검색: ${str5.search("s")}</h3>`);
+
+    document.write(`<hr>`);
+    document.write(`<h1>match() 함수</h1>`);
+    //9. match()함수
+    //정규직 혹은 문자(열)로 검색하여 일치하는 결과를 배열로 리턴한다.
+    //발견되지 않으면  null을 리턴한다.
+    document.write(`<h3>match로 java 확인: ${str5.match("java")}</h3>`);
+    const strTest=str5.match("java");
+
+    //10. substring() 함수
+    //String 에서 전달받은 시작 인덱스부터 종료 인텍스 바로 앞까지의 문자열을 추출한 새로운 문자열을 반환한다.
+
+
+  
   </script>
 </html>
