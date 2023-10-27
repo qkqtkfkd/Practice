@@ -106,7 +106,7 @@
     // keyup - 사용자가 키를 뗄 때
     inputTag.addEventListener("keyup", function (event) {
       //   if (event.keyCode == 229) {
-      inputTag.value = inputTag.value.replace(/[ㄱ-ㅎㅏ-ㅣ가-힣]/g, "");
+      inputTag.value = inputTag.value.replace(/[ㄱ-ㅎㅏ-ㅣ가-힣]/g, ""); //한글입력 방지
       //   }
       //   alert("keyup 이벤트 발생");
       console.log(`key : ${event.key}, code : ${event.code}`);
@@ -119,5 +119,13 @@
     });
 
     //keydown-keypress-keyup
+
+    // 포커스 이벤트
+    // focus-요소가 포커스를 얻었을 때
+    // inputTag.addEventListener("focus", function(){
+    //     alert("focus 이벤트 발생");
+    // })
+    inputTag.focus();
+
   </script>
 </html>
