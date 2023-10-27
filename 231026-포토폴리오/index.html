@@ -10,12 +10,22 @@
     <meta name="og:url" property="포폴" />
     <meta name="og:image" property="프론트앤드 포폴" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/slider.css" />
 
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
     <script
       src="https://kit.fontawesome.com/7cd52b9c00.js"
       crossorigin="anonymous"
     ></script>
-    ";
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
   </head>
   <body>
     <header>
@@ -56,18 +66,18 @@
           <nav id="lnb">
             <ul>
               <li class="main">
-                <a href="#">루시 설명서</a>
+                <a href="#">동물농장</a>
                 <ul class="sub">
-                  <li><a href="#">이야기</a></li>
-                  <li><a href="#">능력</a></li>
-                  <li><a href="#">자격증</a></li>
+                  <li><a href="#">고양이, 강아지</a></li>
+                  <li><a href="#">햄스터</a></li>
+                  <li><a href="#">동물인형</a></li>
                 </ul>
               </li>
               <li class="main">
                 <a href="#">블로그</a>
                 <ul class="sub">
-                  <li><a href="#">나의 역사</a></li>
-                  <li><a href="#">기술 기록</a></li>
+                  <li><a href="#">동물 이미지</a></li>
+                  <li><a href="#">인형 이미지</a></li>
                 </ul>
               </li>
               <li class="main">
@@ -77,11 +87,92 @@
             </ul>
           </nav>
         </div>
+        <script>
+          $("#slider").slick({
+            autoplay: true,
+            autoplaySpeed: 5000,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: true,
+            prevArrow:
+              "<button><i class='fas fa-circle-chevron-left'></i></button>",
+            nextArrow:
+              "<button><i class='fas fa-circle-chevron-right'></i></button>",
+          });
+        </script>
       </div>
     </header>
 
-    <main></main>
+    <main>
+      <div class="container">
+        <div id="slider">
+          <div class="item">
+            <img src="images/a1.jpg" alt="동물 이미지" />
+            <div class="item-text">
+              <h3>사랑스러운 고양이</h3>
+              <p>그루밍하는 모습이 귀여워서 쓰다듬고 싶다.</p>
+            </div>
+          </div>
+          <div class="item">
+            <img src="images/a2.jpg" alt="동물 이미지" />
+            <div class="item-text">
+              <h3>아기자기한 햄스터</h3>
+              <p>댕청하달까... 그래서 귀여운 햄스터</p>
+            </div>
+          </div>
+          <div class="item">
+            <img src="images/a3.jpg" alt="동물 이미지" />
+            <div class="item-text">
+              <h3>인형일까 실물일까</h3>
+              <p>순간 착각을 한 헴스터 인형</p>
+            </div>
+          </div>
+        </div>
+        <script>
+          $("#slider").slick({
+            autoplay: true,
+            autoplaySpeed: 5000,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: true,
+            prevArrow:
+              "<button class='slick-prev'><i class='fas fa-circle-chevron-left'></i></button>",
+            nextArrow:
+              "<button class='slick-next'><i class='fas fa-circle-chevron-right'></i></button>",
+          });
+        </script>
+      </div>
+      <div id="cards">
+        <div class="container">
+          <div class="card">
+            <i class="fas fa-crown"></i>
+            <h3>고양이의 챠밍포인트</h3>
+            <p>돌기가 있는 혓바닥과 솜뭉치같은 손과 살짝 감고 있는 눈.</p>
+          </div>
+          <div class="card">
+            <i class="fas fa-ruler"></i>
+            <h3>햄스터의 챠밍포인트</h3>
+            <p>윤기흐르는 털과 멍해 보인는 얼굴.</p>
+          </div>
+          <div class="card">
+            <i class="fas fa-comments-dollar"></i>
+            <h3>햄스터 인형의 특징</h3>
+            <p>잘 표현된 얼굴과 살짝 내민 혀.</p>
+          </div>
+        </div>
+      </div>
+    </main>
 
-    <footer></footer>
+    <footer>
+      <div class="container">
+        Copright 2023 Lucy. All rights reserved.
+        <br />
+        <i class="fas fa-envelope"></i>:
+        <a href="mailto:ruby563@hanmail.net">ruby563@hanmail.net</a>
+        <br />
+        <i class="fas fa-mobile"></i>:
+        <a href="tel:01075840103">010-7584-0103</a>
+      </div>
+    </footer>
   </body>
 </html>
