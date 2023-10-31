@@ -7,16 +7,16 @@
   </head>
   <body>
     <form>
-    <p>이름: <input type="text" name="name" /></p>
-    <p>
-      성별:
-      <input type="radio" id="male" name="gender" />
-      <label for="male">남자</label>
-      <input type="radio" id="female" name="gender" />
-      <label for="female">여자</label>
-    </p>
-    <p>
-        취미: 
+      <p>이름: <input type="text" name="name" /></p>
+      <p>
+        성별:
+        <input type="radio" id="male" name="gender" value="남" />
+        <label for="male">남자</label>
+        <input type="radio" id="female" name="gender" value="여" />
+        <label for="female">여자</label>
+      </p>
+      <p>
+        취미:
         <input type="checkbox" name="hobby" id="travel" />
         <label for="travel">여행</label>
         <input type="checkbox" name="hobby" id="reading" />
@@ -31,11 +31,33 @@
         <label for="Javascript">Javascript 공부</label>
         <input type="checkbox" name="hobby" id="jquery" />
         <label for="jquery">jQuery 공부</label>
-    </p>
-      <input type="button" value="결과출력"  />
+      </p>
+      <input type="button" value="결과출력" id="resultBtn" />
     </form>
-    <br/>
-    <textarea rows="10" cols="100" ></textarea>
-
+    <br />
+    <textarea rows="10" cols="100"></textarea>
   </body>
+  <script>
+    const resultBtn = document.getElementById("resultBtn");
+    resultBtn.addEventListener("click", function () {
+      const name = document.querySelector("input[name='name']").value;
+      const radioEl = document.querySelectorAll("input[name='gender']");
+      console.log(radioEl);
+      let radioVal;
+      radioEl.forEach((el) => {
+        if (el.checked) {
+          radioVal = el.value;
+        }
+      });
+      const checkboxEl = document.querySelectorAll("input[name='hobby']");
+      const checkboxArr = [];
+      checkboxEl.forEach((el) => {
+        if (el.checked) {
+          checkboxArr.push(el.id);
+        }
+      });
+      const textareaEl=document.querySelector("textarea");
+      textareaEl.innerHTML=`${name}씨!\n 당신의 성별은 "${radioVal}"이고,\n취미는 ${checkboxArr.toString()}이군요!`;
+    });
+  </script>
 </html>
