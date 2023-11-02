@@ -20,10 +20,14 @@
     </ul>
 </body>
 <script>
-    $("li:lt(4)").css("font-size","48px");
-    $("li:first").css("backgroundColor","yellow");
-    $("li:last").css("backgroundColor","yellow");
-    $("li:eq(5)").css("backgroundColor","red");
+    // $("li:lt(4)").css("font-size","48px");
+    // $("li:first").css("backgroundColor","yellow");
+    // $("li:last").css("backgroundColor","yellow");
+    // $("li:eq(5)").css("backgroundColor","red");
+
+    //0번부터 시작(짝수로 인식)
+    $("li:odd").css("backgroundColor","yellow"); //
+    $("li:even").css("backgroundColor","orange");
     
 </script>
 </html>
