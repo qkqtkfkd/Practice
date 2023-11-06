@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>find Method</title>
   </head>
+  <script src="../resources/js/jquery-3.6.4.js"></script>
+  <style>
+    .wrapper * {
+      display: block;
+      border: 2px solid lightgray;
+      color: lightgray;
+      padding: 5px;
+      margin: 15px;
+    }
+    .wrapper {
+      width: 500px;
+    }
+  </style>
   <body>
     <div class="wrapper">
       <ul>
@@ -20,4 +33,53 @@
       </ul>
     </div>
   </body>
+  <script>
+    // $("li.start").next().css({ //선택요소("start")의 다음 형제 선택
+    //   color: "red",
+    //   border: "2px solid red",
+    // });
+
+    // $("li.start").nextAll().css({  //선택요소("start")의 형제 모두 선택
+    //   color: "red",
+    //   border: "2px solid red",
+    // });
+
+    // $("li.start").nextUntil("li.stop", ".my").css({  
+    //   // $("선택자").nextUntil();  => 선택요소 "li.start" 제외 및 다음 형제들
+    //   // $("선택자").nextUntil("선택자"); => 선택요소 "li.start" 다음, "li.stop" 이전 형제들
+    //   // $("선택자").nextUntil("선택자","조건"); 
+    //   // => 선택요소 "li.start" 다음, "li.stop" 이전 형제 중 ".my" 선택
+    //   color: "red",
+    //   border: "2px solid red",
+    // });
+
+    // $("li.stop").prev().css({ //선택요소("start")의 이전 형제 선택
+    //   color: "red",
+    //   border: "2px solid red",
+    // });
+
+    // $("li.stop").prevUntil("li.start", ".my").css({
+    //   // $("선택자").prevUntil();  => 선택요소 "li.stop" 제외 및 이전 형제들
+    //   // $("선택자").prevUntil("선택자"); => 선택요소 "li.stop" 이전, "li.stop" 다음 형제들
+    //   // $("선택자").prevUntil("선택자","조건"); 
+    //   // => 선택요소 "li.stop" 이전, "li.start" 다음 형제 중 ".my" 선택
+    //   color: "blue",
+    //   border: "2px solid blue",
+    // });
+
+    // $("li.start").siblings().css({  //본인(start)을 제외한 형제요소 선택
+    //   color: "red",
+    //   border: "2px solid red",
+    // });
+
+    // $("li.start").siblings("li.my").css({   //본인(start)을 제외한 형제요소 중 "my"선택
+    //   color: "red",
+    //   border: "2px solid red",
+    // });
+
+    // $("li.start").add("li.stop").css({  //본인(start) + stop 추가선택
+    //   color: "red",
+    //   border: "2px solid red",
+    // });
+  </script>
 </html>

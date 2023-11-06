@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>find Method2</title>
+  </head>
+  <script src="../resources/js/jquery-3.6.4.js"></script>
+  <style>
+    .wrapper * {
+      display: block;
+      border: 2px solid lightgray;
+      color: lightgray;
+      padding: 5px;
+      margin: 15px;
+    }
+    .wrapper {
+      width: 500px;
+    }
+  </style>
+  <body>
+    <div class="wrapper">
+      body div
+      <div style="width: 300px">
+        div
+        <ul>
+          ul
+          <li>
+            li
+            <span id="span1">span</span>
+          </li>
+        </ul>
+      </div>
+      <div style="width: 300px">
+        div
+        <ul>
+          ul
+          <li>
+            li
+            <span id="span2">span</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+  <script>
+    // $("#span1").parent().css({ //선택요소(#span1)의 부모
+    //     color:"red",
+    //     border:"2px solid red",
+    // });
+
+    // $("#span1").parents().css({ //선택요소(#span1)의 조상 전부
+    //     color:"red",
+    //     border:"2px solid red",
+    // });
+
+    // $("#span1").parents("ul").css({ //선택요소(#span1)의 조상 중  "ul" 선택
+    //     color:"red",
+    //     border:"2px solid red",
+    // });
+
+    // $("#span1").parentsUntil("div").css({ //선택요소(#span1)의 조상 중  "div"  이전 선택
+    //     color:"red",
+    //     border:"2px solid red",
+    // });
+
+    // $("#span1").closest("div").css({ //선택요소(#span1)의 가장 가까운 부모,조상 선택
+    //     color:"red",
+    //     border:"2px solid red",
+    // });
+
+    // $(".wrapper>div").find("ul").css({ //선택요소(div)를 중심으로 후손  "ul" 선택
+    //     color:"red",
+    //     border:"2px solid red",
+    // });
+
+    $("#span1").closest("div.wrapper").find("#span2").css({
+       //"#span1"의 조상 "div.wrapper"의 후손 "#span2"
+       //.closest=>선택한 요소를 포함하면서 가장 가까운 상위 요소를 선택.
+      color: "red",
+      border: "2px solid red",
+    });
+
+    $("#span2").parents(".wrapper>div").siblings().find("#span1").css({ 
+        //"#span2"의 조상 ".wrapper" 에 포함된 "div" 중 자식 "#span1"
+      color: "blue",
+      border: "2px solid blue",
+    });
+
+  </script>
+</html>
