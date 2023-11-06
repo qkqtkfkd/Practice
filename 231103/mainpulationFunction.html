@@ -29,10 +29,19 @@
     $("p").on("click", function () {
       // alert("p 태그 클릭");
       const index = $(this).index();
+      // p 태그 그룹
+      
+      // 요소 내부에 추가
       //   $(this).append(`<img src=../resources/${imgArr[index]}>`); //글자의 뒤, 적은 순서
       // $(`<img src="../resources/${imgArr[index]}" />`).appendTo(this);
       //   $(this).prepend(`<img src=../resources/${imgArr[index]}>`); //글자의 앞
-      $(`<img src="../resources/${imgArr[index]}" />`).prependTo(this);
+      //   $(`<img src="../resources/${imgArr[index]}" />`).prependTo(this);
+
+      // 요소 외부에 추가
+      // $(this).after(`<img src="../resources/img/${imgArr[index]}" />`);
+      // $(`<img src="../resources/img/${imgArr[index]}" />`).insertAfter(this);
+      // $(this).before(`<img src="../resources/img/${imgArr[index]}" />`);
+      $(`<img src="../resources/img/${imgArr[index]}" />`).insertBefore(this);
     });
   </script>
 </html>
