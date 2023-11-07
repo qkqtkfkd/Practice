@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>find Method</title>
+    <title>class Method</title>
   </head>
   <script src="../resources/js/jquery-3.6.4.js"></script>
   <style>
@@ -53,14 +53,19 @@
 
       if (btnId.search("add") == 0) {
         //클래스 추가버튼 눌렀을 때
-        $("li:last").addClass("big back");
+        $("li:last").addClass("big back");  //li 마지막에 빅백 스타일(css) 주기->addClass 효과
         
       } else if (btnId.search("has") == 0) {
         //클래스 확인버튼 눌렀을 때
+        $("li:last").hasClass("big"); //진실, 거짓
+
       } else if (btnId.search("remove") == 0) {
         //클래스 삭제버튼 눌렀을 때
+        $("li:last").removeClass("big back");  //li 마지막에 빅백 스타일(css) 삭제->removeClass 효과
+
       } else {
         //클래스 토글버튼 눌렀을 때
+        $("li:last").toggleClass("big back"); //li 마지막에 빅백 스타일(css) 추가,삭제
       }
     });
   </script>
