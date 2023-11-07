@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>attrMethod</title>
+  </head>
+  <script src="../resources/js/jquery-3.6.4.js"></script>
+  <style>
+    div {
+      border: 2px solid blue;
+    }
+    img {
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+  <body>
+    <div>
+      <img src="../resources/고양이1.jpg" />
+      <img src="../resources/고양이2.jpg" />
+      <img src="../resources/고양이3.jpg" />
+      <img src="../resources/고양이4.jpg" />
+      <img src="../resources/고양이5.jpg" />
+      <img src="../resources/강아지.jpg" />
+      <br />
+      <button onclick="changeTitle()">눌러보세요</button>
+    </div>
+  </body>
+  <script>
+    function changeTitle() {
+      // 1. img 태그 전체 요소를 가져온다.
+      const imgTags = $("img");
+
+      // 2. 전체 태그에 대한 반복문을 실행하여 title에 src와 똑같은 값을 넣어준다.
+      imgTags.each((i, el) => {
+        console.log(el); $()
+        // el.attr("title",el.attr("src"));
+        const srcVal = $(el).attr("src");
+        $(el).attr("title", srcVal);
+      });
+    }
+  </script>
+</html>
