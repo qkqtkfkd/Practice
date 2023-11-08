@@ -22,12 +22,15 @@
       padding: 50px;
     }
   </style>
+
   <body>
     <p>HIDE 버튼을 누르면 화면에 나타납니다.</p>
     <button id="hide">HIDE</button>
     <button id="show">SHOW</button>
     <button id="toggle">TOGGLE</button>
   </body>
+
+  
   <script>
     $("#hide").on("click", function () {
       // $("p").hide();  //기본형
@@ -37,7 +40,7 @@
         alert("없어졌다!!");
       });
     });
-    
+
     $("#show").on("click", function () {
       // $("p").show();  //기본형
       // $("p").show(2000);  //파라미터 숫자
