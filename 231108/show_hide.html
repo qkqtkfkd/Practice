@@ -1,54 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>show_hide</title>
-</head>
-<script src="../resources/js/jquery-3.6.4.js"></script>
-<style>
-    #panel, #flip{
-        padding: 5px;
-        font-size: 32px;
-        text-align: center;
-        background-color: #555;
-        color: white;
-        border: 2px solid #666;
-        border-radius: 3px;
+  </head>
+  <script src="../resources/js/jquery-3.6.4.js"></script>
+  <style>
+    #panel,
+    #flip {
+      padding: 5px;
+      font-size: 32px;
+      text-align: center;
+      background-color: #555;
+      color: white;
+      border: 2px solid #666;
+      border-radius: 3px;
     }
-    #panel{
-        display: none;
-        padding: 50px;
+    #panel {
+      display: none;
+      padding: 50px;
     }
-</style>
-<body>
-<p>HIDE 버튼을 누르면 화면에 나타납니다.</p>
-<button id="hide">HIDE</button>
-<button id="show">SHOW</button>
-<button id="toggle">TOGGLE</button>
-</body>
-<script>
-$("#hide").on("click",function(){
-    // $("p").hide();  //기본형
-    // $("p").hide(2000);  //파라미터 숫자
-    $("p").hide(2000, function(){  //파라미터 함수
+  </style>
+  <body>
+    <p>HIDE 버튼을 누르면 화면에 나타납니다.</p>
+    <button id="hide">HIDE</button>
+    <button id="show">SHOW</button>
+    <button id="toggle">TOGGLE</button>
+  </body>
+  <script>
+    $("#hide").on("click", function () {
+      // $("p").hide();  //기본형
+      // $("p").hide(2000);  //파라미터 숫자
+      $("p").hide(2000, function () {
+        //파라미터 함수
         alert("없어졌다!!");
+      });
     });
-});
-$("#show").on("click",function(){
-    // $("p").show();  //기본형
-    // $("p").show(2000);  //파라미터 숫자
-    $("p").show(function(){  //파라미터 함수
+    
+    $("#show").on("click", function () {
+      // $("p").show();  //기본형
+      // $("p").show(2000);  //파라미터 숫자
+      $("p").show(function () {
+        //파라미터 함수
         alert("다시 보인다!!");
+      });
     });
-});
 
-$("#toggle").on("click",function(){
-// $("p").toggle();
-// $("p").toggle(2000);
-$("p").toggle(2000, function(){
-    alert("토글 버튼 눌렀다!!");
-});
-});
-</script>
+    $("#toggle").on("click", function () {
+      // $("p").toggle();
+      // $("p").toggle(2000);
+      $("p").toggle(2000, function () {
+        alert("토글 버튼 눌렀다!!");
+      });
+    });
+  </script>
 </html>

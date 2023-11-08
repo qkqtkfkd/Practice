@@ -26,6 +26,7 @@
     <p>FadeIn 버튼을 누르면 요소가 나타나고, FadeOut 버튼을 누르면 요소가 사라집니다.</p>
     <button id="in">FadeIn</button>
     <button id="out">FadeOut</button>
+    <button id="toggle">TOGGLE</button>
     <div id="div1"></div>
     <div id="div2"></div>
     <div id="div3"></div>
@@ -41,6 +42,12 @@
         $("#div1").fadeOut();
         $("#div2").fadeOut("show");
         $("#div3").fadeOut(3000);
+    });
+
+    $("#toggle").on("click",function(){
+        $("#div1").fadeToggle();
+        $("#div2").fadeToggle("show");
+        $("#div3").fadeToggle(3000);
     });
 </script>
 </html>
