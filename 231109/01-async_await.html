@@ -7,11 +7,11 @@
   </head>
   <body></body>
   <script>
-    const url="https://jsonplaceholder.typicode.com/users";
-    async function fetchAndPrint(){
-        const response = await fetch(url);
-        const result= await response.text();
-        console.log(result);
+    const url = "https://jsonplaceholder.typicode.com/users";
+    async function fetchAndPrint() {
+      const response = await fetch(url);
+      const result = await response.text();
+      console.log(result);
     }
 
     //await은 promise 객체를 리턴하는 코드 앞에 붙인다.

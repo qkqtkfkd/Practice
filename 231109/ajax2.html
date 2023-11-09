@@ -40,6 +40,7 @@
             email,
             address: { city },
           } of data) {
+
             // 2. name, email, address 의 city 정보를 변수에 할당한다.
             // const {
             //   name,
@@ -54,6 +55,7 @@
             //      <p>email</p>
             //      <p>city</p>
             //    </li>
+
             const li = document.createElement("li");
             const h2 = document.createElement("h2");
             h2.innerHTML = name;
@@ -81,12 +83,14 @@
             email,
             address: { city },
           } of data) {
+
             // $("#authors").append(
             //   $("<li>").append(
             //     $("<h2>").text(name),
             //     $("<p>").text(`email:${email}`),
             //     $("<p>").text(`city:${city}`)
             //   )
+            
             $("#authors").append(
               `
               <li>

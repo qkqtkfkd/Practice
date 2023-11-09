@@ -29,8 +29,8 @@
       name: "홍길동",
       age: 20,
       address: "대정광역시 중구 선화동",
-      weight:"70kg",
-      height:"190cm",
+      weight: "70kg",
+      height: "190cm",
     };
 
     // ES5
@@ -39,7 +39,7 @@
     // const address=obj.address;
 
     // ES6
-    const { name, age, address: addr, tel="010-1234-5678", ...etc } = obj;
+    const { name, age, address: addr, tel = "010-1234-5678", ...etc } = obj;
     console.log(name, age, addr, tel, etc);
     console.log(obj);
   </script>
