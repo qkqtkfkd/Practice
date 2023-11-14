@@ -10,8 +10,14 @@
       crossorigin
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
     />
-    <link rel="stylesheet" href="../231110-231113/resources/css/mbtiColor-style.css" />
-    <link rel="stylesheet" href="../231110-231113/resources/css/newColor-new.css" />
+    <link
+      rel="stylesheet"
+      href="../231110-231113/resources/css/mbtiColor-style.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../231110-231113/resources/css/newColor-new.css"
+    />
   </head>
 
   <body>
@@ -19,7 +25,11 @@
       <div class="header">
         <h1 class="header-heading">새 컬러 등록하기</h1>
         <a class="cancel" href="javaxcript:history.go(-1)">
-          <img class="cancel-icon" src="../231110-231113/resources/svg/x.svg" alt="X" />
+          <img
+            class="cancel-icon"
+            src="../231110-231113/resources/svg/x.svg"
+            alt="X"
+          />
         </a>
       </div>
       <div class="section">
@@ -79,23 +89,25 @@
           </button>
         </h2>
         <div class="color-input-container">
-            <input class="color-input" type="text" value="#9441ff">
-            <span class="color-input-chip" style="background-color: #9441ff;"></span>
+          <input class="color-input" type="text" value="#9441ff" />
+          <span
+            class="color-input-chip"
+            style="background-color: #9441ff"
+          ></span>
         </div>
       </div>
 
       <button class="submit">컬러등록</button>
-
     </div>
   </body>
   <script>
-    const colorInput=document.querySelector(".color-input");
-    colorInput.addEventListener("change",function(){
-        const colorVal=colorInput.value;
-        if(colorVal.length==7){
-            document.querySelector(".color-input-chip").style.backgroundColor=colorVal;
-
-        }
-    })
+    const colorInput = document.querySelector(".color-input");
+    colorInput.addEventListener("change", function () {
+      const colorVal = colorInput.value;
+      if (colorVal.length == 7) {
+        document.querySelector(".color-input-chip").style.backgroundColor =
+          colorVal;
+      }
+    });
   </script>
 </html>

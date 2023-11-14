@@ -1,16 +1,17 @@
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
-html, body, .container{
-    width: 100%;
+html,
+body,
+.container {
+  width: 100%;
 }
 
-html{
-font-family: Pretendard;;
+html {
+  font-family: Pretendard;
 }
 
-body{
-    margin:0;
-
+body {
+  margin: 0;
 }
