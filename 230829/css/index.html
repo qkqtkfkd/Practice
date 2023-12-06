@@ -1,60 +1,71 @@
 <html>
-     <head>
-          <title> CSS맛보기 </title>
-     </head>
+  <head>
+    <title>CSS맛보기</title>
+  </head>
 
-     <body>
-     <style>
-          .text-color{
-               color: blue;
-               background-color: yellow;
-          }
+  <body>
+    <style>
+      .text-color {
+        color: blue;
+        background-color: yellow;
+      }
 
-          .green {
-               color: green;
-          }
+      .green {
+        color: green;
+      }
 
-          .blue {
-              /* 주석을 작성할 수 있습니다. */
-              /* color: #1bd606; */
+      .blue {
+        /* 주석을 작성할 수 있습니다. */
+        /* color: #1bd606; */
 
-              /* red, green, blue */
-              /* color: rgb(0, 0, 0); */
+        /* red, green, blue */
+        /* color: rgb(0, 0, 0); */
 
-              /* hue, saturation, lightness */
-              /* 색상값, 채도, 명도 */
-              color: hsl(0, 100%, 50%);
+        /* hue, saturation, lightness */
+        /* 색상값, 채도, 명도 */
+        color: hsl(0, 100%, 50%);
 
-              background-color: green;
-          }
+        background-color: green;
+      }
 
-              strong{
-                   color: white;
-              /*color: #000;*/
-                   background-color: blue;
-              }
+      strong {
+        color: white;
+        /*color: #000;*/
+        background-color: blue;
+      }
 
-              span{
-                   background-color: pink;
+      span {
+        background-color: pink;
+      }
+    </style>
 
+    <div>
+      <strong>아무거나 써볼게요</strong>
+      <!-- CSS - Casdading style sheets -->
+      <h1 class="blue green text-color">
+        이곳은<span> 문서의 제목</span>입니다.
+      </h1>
+    </div>
 
-     </style>
+    <p class="text-color">
+      종속형 시트 또는 캐스케이딩 스타일 시트(영어: Cascading Style Sheet)는
+      마크업 언어가 실제 표시되는 방법을 기술하는 스타일 언어(영어: Style sheet
+      language 스타일 시트 랭귀지[*])로[1], HTML과 XHTML에 주로 쓰이며,
+      XML에서도 사용할 수 있다. W3C의 표준이고, 레이아웃과 스타일을 정의할 때의
+      자유도가 높다. 기본 파일명[2]은 style.css이다.
+    </p>
 
-        <div>
-              <Strong>아무거나 써볼게요</strong>      
-          <!-- CSS - Casdading style sheets -->
-          <h1  class="blue green text-color">이곳은<span> 문서의 제목</span>입니다.</h1>
-         </div>     
+    <p class="text-color">
+      마크업 언어(ex: HTML)가 웹사이트의 몸체를 담당한다면
+      <strong>CSS는 옷과 액세서리처럼 꾸미는 역할을 담당</strong>한다고 할 수
+      있다. 즉, HTML 구조는 그대로 두고 CSS 파일만 변경해도 전혀 다른
+      웹사이트처럼 꾸밀 수 있다.
+    </p>
 
-          <p  class="text-color">종속형 시트 또는 캐스케이딩 스타일 시트(영어: Cascading Style Sheet)는 마크업 언어가 실제 표시되는 방법을 기술하는 스타일 언어(영어: Style sheet language 스타일 시트 랭귀지[*])로[1], HTML과 XHTML에 주로 쓰이며, XML에서도 사용할 수 있다. W3C의 표준이고, 레이아웃과 스타일을 정의할 때의 자유도가 높다. 기본 파일명[2]은 style.css이다.</p>
-
-          <p  class="text-color">마크업 언어(ex: HTML)가 웹사이트의 몸체를 담당한다면 <strong>CSS는 옷과 액세서리처럼 꾸미는 역할을 담당</strong>한다고 할 수 있다. 즉, HTML 구조는 그대로 두고 CSS 파일만 변경해도 전혀 다른 웹사이트처럼 꾸밀 수 있다.</p>
-
-          <p  class="text-color">현재 개발 중인 CSS3의 경우 그림자 효과, 그라데이션, 변형 등 그래픽 편집 프로그램으로 제작한 이미지를 대체할 수 있는 기능이 추가되었다. 또한 다양한 애니메이션 기능이 추가되어 어도비 플래시를 어느 정도 대체하고 있다.</p>
-
-
-
-
-
-     </body>
+    <p class="text-color">
+      현재 개발 중인 CSS3의 경우 그림자 효과, 그라데이션, 변형 등 그래픽 편집
+      프로그램으로 제작한 이미지를 대체할 수 있는 기능이 추가되었다. 또한 다양한
+      애니메이션 기능이 추가되어 어도비 플래시를 어느 정도 대체하고 있다.
+    </p>
+  </body>
 </html>
