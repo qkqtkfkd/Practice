@@ -1,19 +1,15 @@
 import Dice from "./Dice";
-import diceBlue01 from "./assets/dice-blue-1.svg";
-import diceRed01 from "./assets/dice-red-1.svg";
 
 //주사위 랜덤 숫자
 function random(n){
     return Math.ceil(Math.random()*n);  //ceil-소수점 올림
 }
 
-
-
 function Board({ name, color }) {
-  const DICE_IMAGES = {
-    red: diceRed01,
-    blue: diceBlue01,
-  };
+//   const DICE_IMAGES = {
+//     red: diceRed01,
+//     blue: diceBlue01,
+//   };
   return (
     <div>
       <h2>{name}</h2>
