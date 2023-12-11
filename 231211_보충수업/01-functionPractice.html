@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01-functionPractice</title>
+  </head>
+  <body></body>
+  <script>
+    //var, let, const
+    let z = 2;
+
+    function A(a, b) {
+      //   console.log(a + b + B(a, b));
+      z = a - b;
+    }
+
+    function B(a, b, ...args) {
+      console.log(arguments);
+      // arguments:유사배열
+      return a + b;
+    }
+
+    const B = (a, b, ...args) => {
+      return a + b;
+    }; //위(function B)와 동일. 화살표 함수
+
+    const B = (a, b, ...args) => a + b; //축약형-a+b 앞에 return 있지만 생략.
+    const B = (a, b, ...args) => ({ a: a + b, b: a - b }); //축약형(객체형)
+    
+    const B = (a) => {
+      return a + 20;
+    };
+    const B = (a) => a + 20;
+
+    // console.log(A(2, 5) + B(10, 3));
+    // const resultA = A(2, 5);
+    // const resultB = B(10, 3);
+    // console.log(resultA + resultB);
+
+    // console.log(z);
+    // A(10, 3);
+    // console.log(z);
+
+    function sumArr(arr) {
+      arr.forEach((v) => {
+        return (z += v);
+      });
+    }
+
+    const arr = [1, 2, 3, 4, 5];
+    sumArr(arr);
+    console.log(z);
+
+    console.log(B(2, 5, 8, 9, 10, 15));
+  </script>
+</html>
