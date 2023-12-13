@@ -1,4 +1,5 @@
 import HandIcon from "./HandIcon";
+import "./HandButton.css"
 
 function HandButton({ value, onClick }) {
 const handleClick=()=>{
@@ -6,8 +7,8 @@ const handleClick=()=>{
 };
 
   return (
-    <button onClick={handleClick}>
-      <HandIcon value={value} />
+    <button className="HandButton" onClick={handleClick}>
+      <HandIcon className="HandButton-icon" value={value} />
     </button>
   );
 }
