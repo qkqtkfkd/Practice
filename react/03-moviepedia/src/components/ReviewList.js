@@ -1,7 +1,12 @@
 import "./ReviewList.css";
 
+function formatDate(value){
+  const date=new Date(value);  
+  return `${date.getFullYear()}. ${date.getMonth()+1}. ${date.getDate()}`;
+}
+
 function ReviewListItem({ item, onDelete }) {
-  const handleDeleteClick = () => onDelete(item.id);  
+  const handleDeleteClick = () => onDelete(item.id);
 
   return (
     <div className="ReviewListItem">
@@ -9,7 +14,7 @@ function ReviewListItem({ item, onDelete }) {
       <div>
         <h1>{item.title}</h1>
         <span>{item.rating}</span>
-        <p>{item.createdAt}</p>
+        <p>{formatDate(item.createdAt)}</p>
         <p>{item.content}</p>
         <button onClick={handleDeleteClick}>삭제</button>
       </div>
