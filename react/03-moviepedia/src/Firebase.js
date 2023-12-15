@@ -10,8 +10,10 @@ import {
   doc,
   deleteDoc,
   updateDoc,
-  dataField,
-  updataDatas,
+  query,
+  orderBy,
+  limit,
+  startAfter,
 } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-analytics.js";
 
@@ -26,17 +28,40 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+// const analytics = getAnalytics(app);
 const db = getFirestore(app);
 
-async function getDatas(collectionName) {
-  const querySnapshot = await getDocs(collection(db, collectionName));
+async function getDatas(collectionName, order, limitNum, lq) {
+  // const querySnapshot = await getDocs(collection(db, collectionName));
+  let docQuery;
+  if (lq === undefined) {
+    docQuery = query(
+      collection(db, collectionName),
+      orderBy(order, "desc"),
+      limit(limitNum)
+    );
+  } else {
+    docQuery = query(
+      collection(db, collectionName),
+      orderBy(order, "desc"),
+      startAfter(lq),
+      limit(limitNum)
+    );
+  }
+  const querySnapshot = await getDocs(docQuery);
+
+  //쿼리 query
+  //orderBy, limit, startAfter
   const result = querySnapshot.docs;
+  const lastQuery = result[result.length - 1];
 
   //[snapshot1, snapshot2, 000,snapshot10];
   //result[0].data();
   const reviews = result.map((doc) => doc.data());
-  return {reviews};
+
+  const option = "";
+
+  return { reviews, lastQuery };
 }
 
 export {
