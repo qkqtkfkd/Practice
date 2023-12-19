@@ -1,4 +1,6 @@
 import { useState } from "react";
+import FileInput from "./FileInput";
+import RatingInput from "./RatingInput";
 
 function ReviewForm() {
   //   const [title, setTitle] = useState("");
@@ -8,7 +10,27 @@ function ReviewForm() {
     title: "",
     rating: 0,
     content: "",
+    imgUrl: null,
   });
+
+  const handleChange = (name, value) => {
+    setValues((prevValues) => ({ ...prevValues, [name]: value }));
+  };
+
+  // const handleChange = (e) => {
+  //   let name, value;
+  //   if (e.files !== null) {
+  //     name=e.targe.name;
+  //     value=e.target.files[0];
+  //   }else if(){
+  //     value=e.target.text;
+  //   } else {
+  //     value=e.targe.value;
+  //   }
+  //   name = e.target;
+  //   setValues((prevValues) => ({ ...prevValues, [name]: value }));
+  // };
+
 
   //   const handleTitleChange = (e) => {
   //     setTitle(e.target.value);
@@ -19,9 +41,10 @@ function ReviewForm() {
   //   const handleContentChange = (e) => {
   //     setContent(e.target.value);
   //   };
-  const handleChange = (e) => {
-    const{name, vallue}=e.target;
-    //setValues()
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    handleChange(name, value);
   };
 
   const handleSubmit = (e) => {
@@ -30,20 +53,20 @@ function ReviewForm() {
 
   return (
     <form className="ReviewForm" onSubmit={handleSubmit}>
-      <input type="file" accept="image/png, imame/jpeg" />
+      <FileInput name="imgUrl" value={values.imgUrl} onChange={handleChange} />
       <input
         type="text"
         name="title"
         value={values.title}
-        onChange={handleChange}
+        onChange={handleInputChange}
       />
-      <input
-        type="text"
+      <RatingInput
+        type="number"
         name="rating"
         value={values.rating}
         onChange={handleChange}
       />
-      <textarea name="content" value={values.content} onChange={handleChange} />
+      <textarea name="content" value={values.content} onChange={handleInputChange} />
       <button type="submit">확인</button>
     </form>
   );
