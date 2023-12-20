@@ -1,7 +1,7 @@
-import { getDatas } from "../Firebase";
+import { getDatas, addDatas, deleteDatas } from "../Firebase";
 import mockItems from "../mock.json";
-import ReviewList from "./ReviewList";
 import ReviewForm from "./ReviewForm";
+import ReviewList from "./ReviewList";
 import { useEffect, useState } from "react";
 import "./ReviewForm.css";
 
@@ -29,10 +29,13 @@ function App() {
   // setItems(sortedItems);};
   const handleBestClick = () => setOrder("rating");
 
-  const handleDelete = (id) => {
+  const handleDelete = async(docId) => {
     //items에서 id 파라미터와 같은 id를 가지는 요소(객체)를 제거
-    const nextItems = items.filter((item) => item.id !== id);
-    setItems(nextItems);
+    // const nextItems = items.filter((item) => item.id !== id);
+    // setItems(nextItems);
+
+    //db에서 데이터 삭제
+    const result=await deleteDatas("movie", docId);
   };
 
   const handleLoad = async (options) => {
@@ -63,6 +66,10 @@ function App() {
     handleLoad({ order, lq, limit: LIMIT });
   };
 
+  const handleAddSuccess=(review)=>{
+  setItems((prevItems)=>[review, ...prevItems]);
+  }
+
   //useEffect 는 argument로 콜백함수와 배열을 넘겨준다.
   //[]는 dependency list라고 하는데 위에서 handleLode 함수가 무한루프 작동을 하기 때문에 처리를 해줘야 하는데
   //리첵트는 [] 안에 있는 값들을 앞에서 기억한 값이랑 비교한다.
@@ -73,17 +80,17 @@ function App() {
 
   return (
     <div>
+      <div>
+        <button onClick={handleNewestClick}>최신순</button>
+        <button onClick={handleBestClick}>베스트순</button>
+      </div>
+      <ReviewForm onSubmit={addDatas} onSubmitSuccess={handleAddSuccess} />
+      <ReviewList items={items} onDelete={handleDelete} />
       {hasNext && (
         <button disabled={isLoading} onClick={handleLoadMore}>
           더 보기
         </button>
       )}
-      <div>
-        <button onClick={handleNewestClick}>최신순</button>
-        <button onClick={handleBestClick}>베스트순</button>
-      </div>
-      <ReviewForm />
-      <ReviewList items={items} onDelete={handleDelete} />
       {
         // 에러가 있을 시 나타낼 요소, 텍스트들을 출력
         // 조건부 연산자-AND(&&):앞에 나오는 것이 true이면 렌더링, OR(||):앞에 나오는 것이 false이면 렌더링
@@ -91,8 +98,8 @@ function App() {
         // ?.=옵셔널체이닝. 앞의 평가대상이 undefined나 null 일 경우 평가를 멈추고 undefined를 반환
 
         //존재하면 참조한다. AND <span></span>
-        //loadingError!==null ? <span>{loadingError.message}</span>:""
-        loadingError?.message && <span>{loadingError.message}</span>
+        loadingError!==null ? <span>{loadingError.message}</span>:""
+        // loadingError?.message && <span>{loadingError.message}</span>
       }
     </div>
   );

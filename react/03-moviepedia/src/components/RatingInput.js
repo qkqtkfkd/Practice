@@ -9,7 +9,7 @@ function RatingInput({ name, value, onChange }) {
 
   // 실제 values.rating 을 바꾸는 함수는 onChange이고,
   // 이 함수를 실행하는 시기는 Star컴포넌트의 onClick 시점이다.
-  const handleSelect = (nextValue) => onchange(name, nextValue);
+  const handleSelect = (nextValue) => onChange(name, nextValue);
   const handleMouseOut = () => setRating(value);
 
   return (

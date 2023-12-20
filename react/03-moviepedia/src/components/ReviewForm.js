@@ -2,16 +2,25 @@ import { useState } from "react";
 import FileInput from "./FileInput";
 import RatingInput from "./RatingInput";
 
-function ReviewForm() {
+const INITIAL_VALUES = {
+  title: "",
+  rating: 0,
+  content: "",
+  imgUrl: null,
+};
+
+function ReviewForm({ onSubmit, onSubmitSuccess }) {
+  const [values, setValues] = useState(INITIAL_VALUES);
+
   //   const [title, setTitle] = useState("");
   //   const [rating, setRating] = useState(0);
   //   const [content, setContent] = useState("");
-  const [values, setValues] = useState({
-    title: "",
-    rating: 0,
-    content: "",
-    imgUrl: null,
-  });
+  // const [values, setValues] = useState({
+  //   title: "",
+  //   rating: 0,
+  //   content: "",
+  //   imgUrl: null,
+  // });
 
   const handleChange = (name, value) => {
     setValues((prevValues) => ({ ...prevValues, [name]: value }));
@@ -31,7 +40,6 @@ function ReviewForm() {
   //   setValues((prevValues) => ({ ...prevValues, [name]: value }));
   // };
 
-
   //   const handleTitleChange = (e) => {
   //     setTitle(e.target.value);
   //   };
@@ -47,8 +55,17 @@ function ReviewForm() {
     handleChange(name, value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    try {
+      const { review } = await onSubmit("movie", values);
+      onSubmitSuccess(review);
+    } catch (error) {
+      return;
+    } finally {
+    }
+    setValues(INITIAL_VALUES);
   };
 
   return (
@@ -66,7 +83,11 @@ function ReviewForm() {
         value={values.rating}
         onChange={handleChange}
       />
-      <textarea name="content" value={values.content} onChange={handleInputChange} />
+      <textarea
+        name="content"
+        value={values.content}
+        onChange={handleInputChange}
+      />
       <button type="submit">확인</button>
     </form>
   );
