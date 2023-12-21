@@ -1,12 +1,21 @@
 import { useEffect, useRef, useState } from "react";
+import resetImg from "../assets/ic-reset.png";
 
-function FileInput({ name, onChange, value }) {
+function FileInput({ name, onChange, value, initialPreview }) {
   const inputRef = useRef();
-  const [preview, setPreview] = useState({});
+  const [preview, setPreview] = useState(initialPreview);
 
   const handleChange = (e) => {
     const nextFile = e.target.files[0];
     onChange(name, nextFile);
+  };
+
+  const handleClearClick = () => {
+    const inputNode = inputRef.current;
+    if (!inputNode) return;
+
+    inputNode.value = "";
+    onChange(name, null);
   };
 
   useEffect(() => {
@@ -17,17 +26,17 @@ function FileInput({ name, onChange, value }) {
     // useEffect 에서는 사이드 이펙트를 정리하는 기능을 제공한다.
     // 리턴을 해줄 때 정리하는 함수를 리턴해줌녀 사이드 이펙트를 정리할 수 있다.
     //createObjectURL의 파라미터는 Blob, file, MediaSourceObject, null 타입의 데이터가 들어와야한다.
-    const nextPreview = URL.createObjectURL(value); 
+    const nextPreview = URL.createObjectURL(value);
     setPreview(nextPreview);
 
     // 디펜던시 리스트 값이 바뀌면 새로 콜백을 실행하는데 이 전에 리액트는 앞에서 리턴한 정리 함수를 실행해서 사이드 이펙트를 정리한다.
     // 재렌더링=>useEffect 콜백함수 실행 => 그 안에 있는 return 함수 기억 =>사 용자 파일 변경되면 => value 값 변경으로 인한 useEffect 함수 실행 밍 콜백함수 실행 => 앞에서 기억해뒀던 return 함수 실행
     // (앞에서 만들어진 사이드 이펙트가 더 이상 쓸모 없어졌기 때문)
     return () => {
-      setPreview({});
+      setPreview(initialPreview);
       URL.revokeObjectURL(nextPreview);
     };
-  }, [value]);
+  }, [value, initialPreview]);
 
   return (
     <div>
@@ -38,6 +47,11 @@ function FileInput({ name, onChange, value }) {
         onChange={handleChange}
         ref={inputRef}
       />
+      {value && (
+        <button onClick={handleClearClick}>
+          <img src={resetImg} alt="선택해제" />
+        </button>
+      )}
     </div>
   );
 }

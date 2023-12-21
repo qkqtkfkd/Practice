@@ -23,6 +23,7 @@ import {
   ref,
   uploadBytes,
   getDownloadURL,
+  deleteObject,
 } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-storage.js";
 
 const firebaseConfig = {
@@ -76,8 +77,17 @@ async function getDatas(collectionName, options) {
   return { reviews, lastQuery };
 }
 
-async function deleteDatas(collectionName, docId){
-  await deleteDoc(doc(db, collectionName, docId));
+async function deleteDatas(collectionName, docId, imgUrl){
+  const storage = getStorage();
+  const deleteRef = ref(storage, imgUrl);
+
+  try{
+    await deleteObject(deleteRef);
+    await deleteDoc(doc(db, collectionName, docId));
+  }catch(error){
+    return false;
+  }
+  return true;
 }
 
 async function addDatas(collectionName, formData) {
@@ -85,8 +95,7 @@ async function addDatas(collectionName, formData) {
   const path = `movie/${uuid}`;
   const lastId = (await getLastId(collectionName)) + 1;
   const time = new Date().getTime();
-
-  //파일을 저장하고 url을 받아온다.
+  // 파일을 저장하고 url 을 받아온다.
   const url = await uploadImage(path, formData.imgUrl);
 
   formData.id = lastId;
@@ -100,6 +109,37 @@ async function addDatas(collectionName, formData) {
     const review = { docId: docSnap.id, ...docSnap.data() };
     return { review };
   }
+}
+
+async function updateDatas(collectionName, formData, docId, imgUrl) {
+  const docRef=aswit doc(db, collectionName, docId);
+
+  const time= new Date().getTime();
+
+  formData.imgUrl=imgUrl;
+  formData.updatedAt=time;
+
+
+//사진 파일을 변경했을 때
+if (formData.imgUrl !===null){  
+  //사진파일 업로드 및 업로드한 파일 경로 가져오기
+  const uuid = crypto.randomUUID();
+  const path = `movie/${uuid}`;  
+  const url = await uploadImage(path, formData.imgUrl);
+
+  //기존사진 삭제하기
+  const storage=getStorage();
+  const deleteRef=ref(storage, imgUrl);
+  await deleteObject(deleteRef);
+
+  //가져온 사진 경로 updateInfoObj 의 imgUrl 에 셋팅하기
+  updateInfoObj.imgUrl=url;
+}
+
+//문서필드 데이터 수정
+await updateDoc(docRef, formData);
+const docData=await getDoc(docRef);
+console.log("수정 성공!!");
 }
 
 async function uploadImage(path, imgFile) {
@@ -137,4 +177,5 @@ export {
   updateDoc,
   addDatas,
   deleteDatas,
+  updateDatas,
 };

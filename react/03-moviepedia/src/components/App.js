@@ -1,4 +1,4 @@
-import { getDatas, addDatas, deleteDatas } from "../Firebase";
+import { getDatas, addDatas, deleteDatas, updateDatas } from "../Firebase";
 import mockItems from "../mock.json";
 import ReviewForm from "./ReviewForm";
 import ReviewList from "./ReviewList";
@@ -29,13 +29,17 @@ function App() {
   // setItems(sortedItems);};
   const handleBestClick = () => setOrder("rating");
 
-  const handleDelete = async(docId) => {
+  const handleDelete = async (docId, imgUrl) => {
     //items에서 id 파라미터와 같은 id를 가지는 요소(객체)를 제거
     // const nextItems = items.filter((item) => item.id !== id);
     // setItems(nextItems);
 
     //db에서 데이터 삭제
-    const result=await deleteDatas("movie", docId);
+    const result = await deleteDatas("movie", docId, imgUrl);
+    if (!result) return; //db에서 삭제가 성공했을 때만 그 결과를 화면에 반영.
+
+    //Items셋팅
+    setItems((prevItems) => prevItems.filter((item) => item.docId !== docId));
   };
 
   const handleLoad = async (options) => {
@@ -66,9 +70,9 @@ function App() {
     handleLoad({ order, lq, limit: LIMIT });
   };
 
-  const handleAddSuccess=(review)=>{
-  setItems((prevItems)=>[review, ...prevItems]);
-  }
+  const handleAddSuccess = (review) => {
+    setItems((prevItems) => [review, ...prevItems]);
+  };
 
   //useEffect 는 argument로 콜백함수와 배열을 넘겨준다.
   //[]는 dependency list라고 하는데 위에서 handleLode 함수가 무한루프 작동을 하기 때문에 처리를 해줘야 하는데
@@ -85,7 +89,11 @@ function App() {
         <button onClick={handleBestClick}>베스트순</button>
       </div>
       <ReviewForm onSubmit={addDatas} onSubmitSuccess={handleAddSuccess} />
-      <ReviewList items={items} onDelete={handleDelete} />
+      <ReviewList
+        items={items}
+        onDelete={handleDelete}
+        onUpdate={updateDatas}
+      />
       {hasNext && (
         <button disabled={isLoading} onClick={handleLoadMore}>
           더 보기
@@ -98,7 +106,7 @@ function App() {
         // ?.=옵셔널체이닝. 앞의 평가대상이 undefined나 null 일 경우 평가를 멈추고 undefined를 반환
 
         //존재하면 참조한다. AND <span></span>
-        loadingError!==null ? <span>{loadingError.message}</span>:""
+        loadingError !== null ? <span>{loadingError.message}</span> : ""
         // loadingError?.message && <span>{loadingError.message}</span>
       }
     </div>
