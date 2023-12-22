@@ -77,14 +77,14 @@ async function getDatas(collectionName, options) {
   return { reviews, lastQuery };
 }
 
-async function deleteDatas(collectionName, docId, imgUrl){
+async function deleteDatas(collectionName, docId, imgUrl) {
   const storage = getStorage();
-  const deleteRef = ref(storage, imgUrl);
-
-  try{
+  
+  try {
+    const deleteRef = ref(storage, imgUrl);
     await deleteObject(deleteRef);
     await deleteDoc(doc(db, collectionName, docId));
-  }catch(error){
+  } catch (error) {
     return false;
   }
   return true;
@@ -112,34 +112,39 @@ async function addDatas(collectionName, formData) {
 }
 
 async function updateDatas(collectionName, formData, docId, imgUrl) {
-  const docRef=aswit doc(db, collectionName, docId);
+  const docRef = await doc(db, collectionName, docId);
+  const time = new Date().getTime();
 
-  const time= new Date().getTime();
+  const updataFormData = {
+    title: formData.title,
+    content: formData.content,
+    rating: formData.rating,
+    updatedAt: time,
+  };
 
-  formData.imgUrl=imgUrl;
-  formData.updatedAt=time;
+  //사진 파일을 변경했을 때
+  if (formData.imgUrl !== null) {
+    //사진파일 업로드 및 업로드한 파일 경로 가져오기
+    const uuid = crypto.randomUUID();
+    const path = `movie/${uuid}`;
+    const url = await uploadImage(path, formData.imgUrl);
 
+    //기존사진 삭제하기
+    const storage = getStorage();
+    try{
+    const deleteRef = ref(storage, imgUrl);
+    await deleteObject(deleteRef);
+    }catch(error){return null;}
 
-//사진 파일을 변경했을 때
-if (formData.imgUrl !===null){  
-  //사진파일 업로드 및 업로드한 파일 경로 가져오기
-  const uuid = crypto.randomUUID();
-  const path = `movie/${uuid}`;  
-  const url = await uploadImage(path, formData.imgUrl);
+    //가져온 사진 경로 updateInfoObj 의 imgUrl 에 셋팅하기
+    updataFormData.imgUrl = url;
+  }
 
-  //기존사진 삭제하기
-  const storage=getStorage();
-  const deleteRef=ref(storage, imgUrl);
-  await deleteObject(deleteRef);
-
-  //가져온 사진 경로 updateInfoObj 의 imgUrl 에 셋팅하기
-  updateInfoObj.imgUrl=url;
-}
-
-//문서필드 데이터 수정
-await updateDoc(docRef, formData);
-const docData=await getDoc(docRef);
-console.log("수정 성공!!");
+  //문서필드 데이터 수정
+  await updateDoc(docRef, updataFormData);
+  const docData = await getDoc(docRef);
+  const review = { docId: docData.id, ...docData.data() };
+  return { review };
 }
 
 async function uploadImage(path, imgFile) {
