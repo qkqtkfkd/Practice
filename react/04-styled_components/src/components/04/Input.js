@@ -9,10 +9,6 @@ const Input = styled.input`
   &:focus {
     border-color: #7760b4;
   }
-/* 
-  display: flex;
-  align-items: center;
-  justify-content: center; */
 `;
 
 export default Input;
