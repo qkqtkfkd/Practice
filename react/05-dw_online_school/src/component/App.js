@@ -9,8 +9,7 @@ function App() {
   return (
     <>
       <Nav className={styles.nav}/>
-      <div className={styles.body}/>
-      <div>
+      <div className={styles.body}>
         <Outlet />
       </div>
       <Footer className={styles.footer}/>
