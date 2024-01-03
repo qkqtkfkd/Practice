@@ -53,6 +53,12 @@ async function getDatas(collectionName, options) {
     }));
 
     return result;
+  } else if (options.lq === undefined) {
+    docQuery = query(
+      collection(db, collectionName),
+      orderBy(options.order, "desc"),
+      limit(options.limit)
+    );
   } else {
     docQuery = query(
       collection(db, collectionName),
