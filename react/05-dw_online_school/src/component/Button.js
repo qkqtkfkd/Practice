@@ -6,7 +6,7 @@ function Button({ className, variant, isDiv, ...restProps }) {
     return (
       <button
         {...restProps}
-        classNames={classNames(
+        className={classNames(
           styles.button,
           variant && styles[variant],
           className
@@ -18,7 +18,7 @@ function Button({ className, variant, isDiv, ...restProps }) {
   return (
     <button
       {...restProps}
-      classNames={classNames(
+      className={classNames(
         styles.button,
         variant && styles[variant],
         className

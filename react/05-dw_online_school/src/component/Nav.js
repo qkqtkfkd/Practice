@@ -3,14 +3,13 @@ import UserMenu from "./UserMenu";
 import styles from "./Nav.module.css";
 import { Link, NavLink } from "react-router-dom";
 
-
-function getLinkStyle({isActive}) {
-    return{
-      textDecoration:isActive ? 'underline':undefined,
-    };
-  
+function getLinkStyle({ isActive }) {
+  return {
+    textDecoration: isActive ? "underline" : undefined,
+  };
 }
 function Nav() {
+  console.log("Nav 로딩");
   return (
     <div className={styles.nav}>
       <Container className={styles.container}>
@@ -21,13 +20,17 @@ function Nav() {
         </Link>
         <ul className={styles.menu}>
           <li>
-            <NavLink to="/courses" styled={getLinkStyle}>카탈로그</NavLink>
+            <NavLink to="/courses" style={getLinkStyle}>
+              카탈로그
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/questions" styled={getLinkStyle}>커뮤니티</NavLink>
+            <NavLink to="/questions" style={getLinkStyle}>
+              커뮤니티
+            </NavLink>
           </li>
           <li>
-            <UserMenu />
+            <UserMenu  />
           </li>
         </ul>
       </Container>

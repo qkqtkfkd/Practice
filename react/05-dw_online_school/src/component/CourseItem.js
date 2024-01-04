@@ -21,10 +21,9 @@ function CourseItem({ course }) {
       </div>
       <div className={styles.content}>
         <h2 className={styles.title}>
-          {course.title}
-          <Link to={`/course/${course.slug}`} state={{ course }}>
-            {" "}
-            {course.tilte}
+          <Link to={`/courses/${course.slug}`} state={{ course }}>
+
+            {course.title}
           </Link>
         </h2>
         <p className={styles.description}>{course.summary}</p>
