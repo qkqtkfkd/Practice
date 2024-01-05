@@ -6,7 +6,7 @@ import Button from "./LoginButton";
 import KakaoButton from "./KakaoButton";
 import { useState } from "react";
 import { getMember } from "../api/Firebase";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useMember, useSetMember } from "../contexts/MemberContext";
 
 const Logo = styled.h1`
@@ -38,11 +38,11 @@ const Container = styled.div`
 `;
 
 function Login() {
-  const member = useMember();
-  const setMember = useSetMember();
-  console.log(member, setMember);
+  // const member = useMember();
+  // const setMember = useSetMember();
 
-  const navigate=useNavigate();
+  const {state} = useLocation();
+  const navigate = useNavigate();
   const [values, setValues] = useState({
     id: "",
     password: "",
@@ -58,12 +58,14 @@ function Login() {
 
     const { memberObj, message } = await getMember(values);
     if (message === undefined) {
+      localStorage.setItem("member", JSON.stringify(memberObj));
+
       // alert("로그인에 성공했습니다.");
-      // window.location.
-      navigate("/");
+      // window.location.href="/";
+      // setMember(memberObj);
+      navigate(state ? state:"/");
     } else {
       alert(message);
-      console.log();
     }
   };
 

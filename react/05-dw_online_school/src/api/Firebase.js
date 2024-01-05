@@ -17,6 +17,8 @@ import {
   startAfter,
   exists,
   where,
+  arrayUnion,
+  arrayRemove,
 } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
 
 import {
@@ -83,8 +85,21 @@ async function getDatas(collectionName, options) {
   //   obj.dovId = doc.id;
   //   return obj;
   // }); -스프레드 문법 해석
-
   return { reviews, lastQuery };
+}
+
+async function getData(collectionName, fieldName, condition, value) {
+  const docQuery = query(
+    collection(db, collectionName),
+    where(fieldName, condition, value)
+  );
+
+  const querySnapshot = await getDocs(docQuery);
+  const data = querySnapshot.docs.map((doc) => ({
+    docId: doc.id,
+    ...doc.data(),
+  }));
+  return data.length === 1 ? data[0] : data;
 }
 
 async function getMember(values) {
@@ -94,9 +109,9 @@ async function getMember(values) {
 
   const docQuery = query(collection(db, "member"), where("id", "==", id));
   const querySnapshot = await getDocs(docQuery);
-  
+
   if (querySnapshot.docs.length !== 0) {
-    const memberData = querySnapshot.docs.map((doc) =>({
+    const memberData = querySnapshot.docs.map((doc) => ({
       docId: doc.id,
       ...doc.data(),
     }))[0];
@@ -146,42 +161,27 @@ async function addDatas(collectionName, formData) {
   }
 }
 
-async function updateDatas(collectionName, formData, docId, imgUrl) {
-  const docRef = await doc(db, collectionName, docId);
-  const time = new Date().getTime();
-
-  const updataFormData = {
-    title: formData.title,
-    content: formData.content,
-    rating: formData.rating,
-    updatedAt: time,
-  };
-
-  //사진 파일을 변경했을 때
-  if (formData.imgUrl !== null) {
-    //사진파일 업로드 및 업로드한 파일 경로 가져오기
-    const uuid = crypto.randomUUID();
-    const path = `movie/${uuid}`;
-    const url = await uploadImage(path, formData.imgUrl);
-
-    //기존사진 삭제하기
-    const storage = getStorage();
-    try {
-      const deleteRef = ref(storage, imgUrl);
-      await deleteObject(deleteRef);
-    } catch (error) {
-      return null;
+async function updateDatas(collectionName, docId, updateData, options) {
+  
+  const docRef = doc(db, collectionName, docId);
+  try {
+    if (options) {
+      if (options.type == "ADD") {
+        await updateDoc(docRef, {
+          [options.fieldName]: arrayUnion(updateData),
+        });
+      } else if (options.type == "DELETE") {
+        await updateDoc(docRef, {
+          [options.fieldName]: arrayRemove(updateData),
+        });
+      }
+    } else {
+      await updateDoc(docRef, updateData);
     }
-
-    //가져온 사진 경로 updateInfoObj 의 imgUrl 에 셋팅하기
-    updataFormData.imgUrl = url;
+    return true;
+  } catch (error) {
+    return false;
   }
-
-  //문서필드 데이터 수정
-  await updateDoc(docRef, updataFormData);
-  const docData = await getDoc(docRef);
-  const review = { docId: docData.id, ...docData.data() };
-  return { review };
 }
 
 async function uploadImage(path, imgFile) {
@@ -221,4 +221,5 @@ export {
   deleteDatas,
   updateDatas,
   getMember,
+  getData,
 };
