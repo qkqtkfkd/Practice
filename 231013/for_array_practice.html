@@ -14,13 +14,13 @@
       document.write("<h2>" + (i + 1) + "번째 원소값:" + arr[i]);
     }
     document.write("<hr>");
-
+//////
     document.write("<h1>for...in문</h1>");
     for (let i in arr) {
-      document.write("<h2>" + (+i + 1) + "번째 원소갑 : " + arr[i] + "</h2>");
+      document.write("<h2>" + (+i + 1) + "번째 원소값 : " + arr[i] + "</h2>");
     }
     document.write("<hr>");
-
+//////
     let car = {
       brand: "Hyundai",
       name: "kona",
@@ -34,17 +34,17 @@
     for (let i in car) {
       //document.write("<h2>" + i + "</h2>");
       document.write(
-        "<h2>" + "key 값 : " + i + ", values 값 :" + car[i] + "</h2>"
+        "<h2>" + "key 값 : " + i + ", /  values 값 :" + car[i] + "</h2>"
       );
     }
     document.write("<hr>");
-
+//////
     document.write("<h1>for...of문을 활용한 배열값 가져오기</h1>");
     for (let v of arr) {
       document.write("<h2>배열에 있는 원소값 : " + v + "</h2>");
     }
     document.write("<hr>");
-
+//////
     document.write("<h1>for...of문을 활용한 객체값 가져오기</h1>");
     document.write(
       "<h2>for...of를 사용할 수 없다.(not iterable이기 때문에)</h2>"
@@ -52,14 +52,14 @@
     //for (let v of car) {
     // //document.write("<h2>" + v + "</h2>");}
     document.write("<hr>");
-
+//////
     arr.forEach(function (value, index, array) {
       document.write(
-        "<h2>value 값 : " +
+        "<h2>value 값(객체) : " +
           value +
-          ", index 값 : " +
+          ", / index 값(리스트 순서) : " +
           index +
-          " , array : " +
+          " , / array(전체내용) : " +
           array
       );
       document.write(
