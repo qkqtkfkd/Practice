@@ -11,7 +11,7 @@
       content="HTML, CSS를 이용해 기존의 내용은 그대로
     유지하면서 새로운 내용을 환기하여 보여주는 modal window를 제작할 수 있다."
     />
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/common.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   </head>
   <body>
@@ -33,7 +33,10 @@
           <button id="modal_close" type="button">&times;</button>
         </div>
         <div id="modal_body">
-          가갸거겨고교구규그기아에이오우가나다라마바사아자차카타파하아야어여오요우유으이
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore nobis
+          deserunt, fuga nostrum delectus reprehenderit commodi, a eveniet eaque
+          cupiditate eos soluta. At odio mollitia debitis ipsa labore libero
+          fugiat?
         </div>
       </div>
     </div>
@@ -42,21 +45,26 @@
       // #modal_open이 눌리면 이런일이벌어질것이다.
       //    #modal_back의 스타일 중 display의 값을 "block"으로 변경한다.
       //    (숨겨졌던 #modal_back이 보여진다.)
-      // document.getElementById("modal_open").onclick = function () {
-      //   document.getElementById("modal_back").style.display = "block";
-      // };
-      $("modal_open").click(function () {
-        $("modal_win").animate({ marginTop: "1000px" }, 200, function () {
-          $("#modal_back").fadeOut();
+      //   document.getElementById("modal_open").onclick = function () {
+      //     document.getElementById("modal_back").style.display = "block";
+      //   };
+      $("#modal_open").click(function () {
+        $("#modal_back").fadeIn(200, function () {
+          $("#modal_win").animate({ marginTop: 0 }, 200);
         });
       });
 
       // #modal_close가 눌리면 이런일이벌어질것이다.
       //    #modal_back의 스타일 중 display의 값을 "none"으로 변경한다.
       //    (보여졌던 #modal_back이 숨겨진다.)
-      // document.getElementById("modal_close").onclick = function () {
-      //   document.getElementById("modal_back").style.display = "none";
-      // };
+      //   document.getElementById("modal_close").onclick = function () {
+      //     document.getElementById("modal_back").style.display = "none";
+      //   };
+      $("#modal_close").click(function () {
+        $("#modal_win").animate({ marginTop: "1000px" }, 200, function () {
+          $("#modal_back").fadeOut(200);
+        });
+      });
     </script>
   </body>
 </html>
