@@ -13,18 +13,25 @@
       <li><span>List item 4</span></li>
       <li><span>List item 5</span></li>
     </ul>
-
   </body>
+
   <script>
     let list = document.getElementsByTagName("ul")[0];
     let allItems = list.getElementsByTagName("li");
-    allItems[4].lastChild.style.color="red";
-    allItems[2].previousSibling.previousSibling.style.color="yellow"
-    allItems[2].nextSibling.nextSibling.style.color="blue"
+    allItems[4].lastChild.style.color = "red";
+    allItems[2].previousSibling.previousSibling.style.color = "yellow";
+    allItems[2].nextSibling.nextSibling.style.color = "blue";
+
+    // nextSibling 속성 - 바로다음형제노드
+    // childNodes 속성 - 자식노드리스트
+    // firstChild 속성 - 첫번째자식노드
+    // lastChild 속성 - 마지막자식노드
+    // parentNode 속성 - 부모노드
+    // nodeName 속성 - 노드명
 
     for (let i = 0, length = allItems.length; i < length; i++) {
-    //   alert(allItems[i].firstChild.data);
-    console.log(allItems[i].firstChild.innerHTML);
+      //   alert(allItems[i].firstChild.data);
+      console.log(allItems[i].firstChild.innerHTML);
     }
   </script>
 </html>

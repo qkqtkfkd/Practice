@@ -37,18 +37,22 @@
     <br />
     <textarea rows="10" cols="100"></textarea>
   </body>
+
   <script>
     const resultBtn = document.getElementById("resultBtn");
     resultBtn.addEventListener("click", function () {
+
       const name = document.querySelector("input[name='name']").value;
+
       const radioEl = document.querySelectorAll("input[name='gender']");
-      console.log(radioEl);
+      console.log(radioEl);      
       let radioVal;
       radioEl.forEach((el) => {
         if (el.checked) {
           radioVal = el.value;
         }
       });
+
       const checkboxEl = document.querySelectorAll("input[name='hobby']");
       const checkboxArr = [];
       checkboxEl.forEach((el) => {
@@ -56,6 +60,7 @@
           checkboxArr.push(el.id);
         }
       });
+      
       const textareaEl = document.querySelector("textarea");
       textareaEl.innerHTML = `${name}씨!\n 당신의 성별은 "${radioVal}"이고,\n취미는 ${checkboxArr.toString()}이군요!`;
     });
