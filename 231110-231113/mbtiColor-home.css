@@ -34,14 +34,14 @@ top:0; */
 }
 
 .filter {
-  background-color: #fff;
+  background-color: #ffffff;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   padding: 8px 24px;
   gap: 24px;
   border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
 }
 
 .content {
@@ -71,7 +71,7 @@ top:0; */
 .item {
   display: flex;
   padding: 16px 48px;
-  color: #dfc8da;
+  color: #bfc8da;
   align-items: center;
   cursor: pointer;
   border-radius: 8px;
@@ -179,5 +179,11 @@ top:0; */
   }
   .item-color-code {
     width: 72px;
+  }
+
+  .item-color-chip {
+    /* margin-left: 16px; */
+    margin-right: 8px;
+    /* margin: 0 8px 0 16px; */
   }
 }

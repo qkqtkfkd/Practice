@@ -15,3 +15,7 @@ export function getMockItems(lastItemNum) {
 
   return { data: mock.slice(lastItemNum, nextItemNum), nextItemNum };
 }
+// 구조분해 할당
+export function getMockItemsByFilter(filter) {
+  return {data:mock.filter(({ mbti }) => mbti == filter)};
+}

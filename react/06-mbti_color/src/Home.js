@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./Home.module.css";
 import { Link } from "react-router-dom";
-import { getMockItems } from "./lib/api";
+import { getMockItems, getMockItemsByFilter } from "./lib/api";
 import ColorSurvey from "./components/ColorSurvey";
 
 function Home() {
@@ -9,8 +9,16 @@ function Home() {
   const [filter, setFilter] = useState(null);
   const nextPageNum = useRef(null);
 
-  const handleLoad = () => {
-    const { data } = getMockItems();
+  const handleLoad = (setFilter) => {
+let result;
+
+if(filter){
+result=getMockItemsByFilter(filter);
+}else{
+  result=getMockItems();
+}
+
+    const { data } =result;
     nextPageNum.current = data.length;
     setItems(data);
   };
@@ -27,20 +35,23 @@ function Home() {
   };
 
   useEffect(() => {
-    handleLoad();
-  }, []);
+    handleLoad(filter);
+  }, [filter]);
   // handleLoad는 무한반복. useEffect-한번만 가능하게 함.
 
   useEffect(() => {
     function handleScroll() {
-      if (!nextPageNum) return;
+console.log(nextPageNum.current);
+      if (!nextPageNum.current) return;
       const { scrollHeight, scrollTop, clientHeight } =
         document.documentElement;
       if (scrollTop + clientHeight >= scrollHeight) {
         handleLoadNext();
       }
     }
+
     window.addEventListener("scroll", handleScroll);
+    return ()=>window.removeEventListener("scroll",handleScroll);
   }, []);
 
   return (
@@ -53,6 +64,7 @@ function Home() {
             <span className={styles.accent}>좋아하는 컬러</span>
           </h1>
           <div>
+          {/* 조건부 렌더링 */}
             {filter && (
               <div className={styles.filter} onClick={() => setFilter(null)}>
                 {filter}
