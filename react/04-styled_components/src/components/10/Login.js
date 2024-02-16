@@ -5,7 +5,7 @@ import Input from "./Input";
 import Button from "./Button";
 import KakaoButton from "./KakaoButton";
 
-const Logo = styled.h1`
+const Logo= styled.h1`
   font-family: Pretendard;
   text-align: center;
   font-size: 40px;

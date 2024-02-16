@@ -125,6 +125,7 @@ function App() {
           <LocaleSelect />
         </div>
       </nav>
+      
       <div className="App-container">
         <div
           className="App-ReviewForm"
